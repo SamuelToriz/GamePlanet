@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">GamePlanet</string>
+    <string name="Logo">TODO</string>
+    <string name="registrar">Registrar</string>
+    <string name="txtvtitulo">txtvTitulo</string>
+    <string name="selecciona_tu_genero">Selecciona tu genero</string>
+    <string name="_30_08_1995">30/08/1995</string>
+    <string name="selecciona_tu_estado">Selecciona tu estado</string>
+    <string name="selecciona_tu_municipio">Selecciona tu municipio</string>
+    <string name="escribe_tu_email">Escribe tu email</string>
+    <string name="escribe_tu_apellido_materno">Escribe tu apellido materno</string>
+    <string name="escribe_tu_apellido_paterno">Escribe tu apellido paterno</string>
+    <string name="escribe_tu_nombre">escribe tu nombre</string>
+    <string name="escribe_tu_contrase_a">Escribe tu contraseña</string>
+    <string name="repite_tu_contrase_a">Repite tu contraseña</string>
+    <string name="cancelar_compra_online">Cancelar Compra Online</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="name">Name</string>
+
+</resources>
