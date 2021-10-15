@@ -59,15 +59,15 @@
         <Spinner
             android:id="@+id/spinnerCantidad"
             android:layout_width="130dp"
-            android:layout_height="31dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
+            android:entries="@array/cantidades"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:entries="@array/cantidades"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/buttonAgregar"
+            android:id="@+id/buttonEliminar"
             android:layout_width="114dp"
             android:layout_height="54dp"
             android:layout_marginTop="20dp"

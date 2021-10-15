@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gameplanet.Data.CartDb
+import com.example.gameplanet.Data.MyAppSettingd
 import com.example.gameplanet.Entity.EntityProduct
+import com.example.gameplanet.Entity.EntitySalesDetail
 import com.example.gameplanet.R
 import com.example.gameplanet.Tools.Constants
 import com.example.gameplanet.databinding.ItemProductBinding
@@ -28,7 +31,12 @@ class ProductAdapter (val productList: ArrayList<EntityProduct>, val context: Co
         holder.textViewProductManufac.text=productList[position].ProductManufacturer
         holder.textViewProductPrice.text=productList[position].Cost.toString()
         holder.buttonAgregar.setOnClickListener {
-            Toast.makeText(context,"agregar ${productList[position].ProductName}",Toast.LENGTH_LONG).show()
+            val customer = MyAppSettingd(context).getValueString(Constants.idUser)
+            if(customer.isNullOrEmpty()){
+                Toast.makeText(context,"Usuario no logeado",Toast.LENGTH_LONG).show()
+            }else{
+                addtoCart(position,holder)
+            }
         }
         Picasso.get()
             .load(productList[position].Image)
@@ -43,6 +51,21 @@ class ProductAdapter (val productList: ArrayList<EntityProduct>, val context: Co
             })
     }
 
+    fun addtoCart(position:Int,holder: ProductHolder){
+
+        val posdetail = EntitySalesDetail()
+
+        posdetail.idProduct=productList[position].Id
+        posdetail.nameProduct=productList[position].ProductName
+        posdetail.manufactureProduct=productList[position].ProductManufacturer
+        posdetail.costo=productList[position].Cost
+        posdetail.numberProducts=holder.spinnerCantidad.selectedItemPosition+1
+        posdetail.image=productList[position].Image
+
+        val db = CartDb(context)
+        db.add(posdetail)
+        Toast.makeText(context,"se agregó al carrito: ${productList[position].ProductName}",Toast.LENGTH_LONG).show()
+    }
     override fun getItemCount(): Int {
         return productList.size
     }
